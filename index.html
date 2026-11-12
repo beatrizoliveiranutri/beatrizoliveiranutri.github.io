@@ -179,53 +179,56 @@
   .c-metodo .cta{color:#fff;display:flex}
   .c-metodo .arrow{background:rgba(255,255,255,.18);color:#fff}
 
-  /* Cartão 3 — Cupons (vinho escuro) */
-  .c-cupons{background:linear-gradient(160deg,#5B4133 0%,#3F2D23 100%);color:#fff}
-  .c-cupons .head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
-  .c-cupons .title{font-size:30px;letter-spacing:-.3px}
-  .c-cupons .title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:27px;color:#E2C49C;margin-left:2px}
-  .c-cupons .badge{
-    flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
-    background:rgba(255,255,255,.14);color:#fff;
-  }
-  .c-cupons .badge svg{width:19px;height:19px}
-  .c-cupons .text{color:#EDE0D1;margin-bottom:14px}
-  .coupon{
-    width:100%;display:flex;align-items:center;gap:12px;text-align:left;
-    background:#fff;border:0;border-radius:16px;padding:10px 12px 10px 10px;margin-top:9px;
-    font:inherit;color:var(--ink);cursor:pointer;
-    transition:transform .2s ease,box-shadow .2s ease;
+  /* Cupons — título da seção */
+  .sec-head{text-align:center;margin:26px 0 14px;animation:rise .7s ease both}
+  .sec-title{font-family:'Gloock',serif;font-weight:400;font-size:30px;color:var(--brown);line-height:1}
+  .sec-title em{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--caramel);margin-left:2px}
+  .sec-sub{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+  .sec-sub b{color:var(--brown)}
+
+  /* Cupons — cartões com foto e camada de cor */
+  .promo{
+    --c:138,106,82;
+    width:100%;border:0;text-align:left;font:inherit;color:#fff;cursor:pointer;
+    background:rgb(var(--c));min-height:196px;
     -webkit-tap-highlight-color:transparent;
   }
-  .coupon:hover{transform:translateY(-2px);box-shadow:0 10px 20px -10px rgba(0,0,0,.45)}
-  .coupon:active{transform:scale(.98)}
-  .logo{
-    flex:none;width:76px;height:48px;border-radius:11px;overflow:hidden;
-    background:#fff;border:1px solid #EEE6DC;display:grid;place-items:center;
+  .promo-shein{--c:138,106,82}
+  .promo-growth{--c:78,56,44}
+  .promo-lot{--c:169,125,88}
+  .promo:hover{transform:translateY(-3px)}
+  .promo:active{transform:scale(.985)}
+  .promo-photo{
+    position:absolute;right:0;top:0;bottom:0;width:58%;
+    background:center 18%/cover no-repeat;
   }
-  .logo img{width:100%;height:100%;object-fit:contain;padding:6px}
-  .logo.lot img{object-fit:cover;padding:0}
-  .logo.shein img{padding:4px 2px}
-  .c-info{flex:1;min-width:0}
-  .c-store{font-size:12px;font-weight:600;color:var(--muted);line-height:1.2}
-  .c-code{
-    display:inline-block;max-width:100%;margin-top:4px;
-    font-size:13px;font-weight:800;letter-spacing:.4px;color:var(--brown);
-    border:1.5px dashed #C9AA86;background:var(--cream);
-    border-radius:8px;padding:4px 8px;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  .promo-shein .promo-photo{background-image:url(img/cupom-shein.jpg);background-position:center 20%}
+  .promo-growth .promo-photo{background-image:url(img/cupom-growth.jpg);background-position:center 45%}
+  .promo-lot .promo-photo{background-image:url(img/cupom-lot.jpg);background-position:center 4%}
+  .promo::after{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(90deg,rgb(var(--c)) 40%,rgba(var(--c),.78) 60%,rgba(var(--c),.3) 100%);
   }
-  .c-code.long{font-size:11.5px;letter-spacing:0}
-  .c-copy{
-    flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
-    background:var(--sand-soft);color:var(--caramel);transition:background .2s,color .2s;
+  .promo .card-body{display:block;width:72%}
+  .promo-logo{display:block;height:24px;width:auto;max-width:150px;object-fit:contain;object-position:left center;margin-bottom:10px}
+  .promo-growth .promo-logo{height:34px}
+  .promo-lot .promo-logo{height:40px}
+  .promo .text{display:block;color:#F8EFE6;font-size:13.5px}
+  .promo .text b{color:#fff}
+  .promo-code{
+    display:inline-block;margin-top:10px;max-width:100%;
+    font-size:13px;font-weight:800;letter-spacing:.5px;color:#fff;
+    border:1.5px dashed rgba(255,255,255,.7);background:rgba(255,255,255,.12);
+    border-radius:9px;padding:5px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
-  .c-copy svg{width:16px;height:16px}
+  .promo-code.long{font-size:11px;letter-spacing:0}
+  .promo .cta{display:flex;color:#fff;margin-top:12px}
+  .promo .arrow{background:rgba(255,255,255,.2);color:#fff;transition:background .2s}
+  .promo .arrow svg{width:14px;height:14px}
   .c-copy .ok{display:none}
-  .coupon.copied .c-copy{background:#7A8F5E;color:#fff}
+  .coupon.copied .c-copy{background:#7A8F5E}
   .coupon.copied .c-copy .ok{display:block}
   .coupon.copied .c-copy .cp{display:none}
-  .c-hint{font-size:11.5px;color:#D7C3AC;text-align:center;margin-top:12px;font-weight:500}
 
   /* Cartão 4 — Studio (creme) */
   .c-studio{background:var(--nude)}
@@ -271,7 +274,6 @@
   @media (max-width:360px){
     .title{font-size:23px}
     .c-consulta .card-body{width:72%}
-    .logo{width:64px}
   }
 </style>
 </head>
@@ -329,53 +331,47 @@
   </a>
 
   <!-- 3. Cupons -->
-  <section class="card c-cupons" aria-labelledby="cupons-titulo">
-    <div class="card-body">
-      <div class="head">
-        <h2 class="title" id="cupons-titulo">Cupons <em>de desconto</em></h2>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
-      </div>
-      <p class="text">Marcas que eu uso e indico. Toque no cupom para <b>copiar</b> e cole no carrinho.</p>
+  <div class="sec-head">
+    <h2 class="sec-title">Cupons <em>de desconto</em></h2>
+    <p class="sec-sub">Marcas que eu uso e indico. Toque no cartão para <b>copiar o cupom</b>.</p>
+  </div>
 
-      <button class="coupon" data-code="beatrizoliveiranutrii0644" data-store="Shein" type="button">
-        <span class="logo shein"><img src="img/shein.png" alt="Shein"></span>
-        <span class="c-info">
-          <span class="c-store">Shein</span><br>
-          <span class="c-code long">beatrizoliveiranutrii0644</span>
-        </span>
-        <span class="c-copy" aria-hidden="true">
-          <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
-          <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
-        </span>
-      </button>
-
-      <button class="coupon" data-code="BEATRIZNUTRI" data-store="Growth" type="button">
-        <span class="logo"><img src="img/growth.png" alt="Growth Supplements"></span>
-        <span class="c-info">
-          <span class="c-store">Growth Supplements</span><br>
-          <span class="c-code">BEATRIZNUTRI</span>
-        </span>
-        <span class="c-copy" aria-hidden="true">
-          <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
-          <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
-        </span>
-      </button>
-
-      <button class="coupon" data-code="BEATRIZNUTRI" data-store="Lot Fitness" type="button">
-        <span class="logo lot"><img src="img/lot.jpg" alt="Lot Fitness"></span>
-        <span class="c-info">
-          <span class="c-store">Lot Fitness</span><br>
-          <span class="c-code">BEATRIZNUTRI</span>
-        </span>
-        <span class="c-copy" aria-hidden="true">
-          <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
-          <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
-        </span>
-      </button>
-
-      <p class="c-hint">Cupons válidos conforme as regras de cada loja.</p>
-    </div>
-  </section>
+  <button class="card promo coupon promo-shein" data-code="beatrizoliveiranutrii0644" data-store="Shein" type="button">
+    <span class="promo-photo"></span>
+    <span class="card-body">
+      <img class="promo-logo" src="img/logo-shein-w.png" alt="Shein">
+      <span class="text">Moda, acessórios e casa com <b>desconto especial</b> usando o meu cupom.</span>
+      <span class="promo-code long">beatrizoliveiranutrii0644</span>
+      <span class="cta">Copiar cupom <span class="arrow c-copy">
+            <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+            <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
+          </span></span>
+    </span>
+  </button>
+  <button class="card promo coupon promo-growth" data-code="BEATRIZNUTRI" data-store="Growth" type="button">
+    <span class="promo-photo"></span>
+    <span class="card-body">
+      <img class="promo-logo" src="img/logo-growth-w.png" alt="Growth Supplements">
+      <span class="text">Os suplementos que eu uso no dia a dia, <b>mais em conta</b> pra você.</span>
+      <span class="promo-code">BEATRIZNUTRI</span>
+      <span class="cta">Copiar cupom <span class="arrow c-copy">
+            <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+            <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
+          </span></span>
+    </span>
+  </button>
+  <button class="card promo coupon promo-lot" data-code="BEATRIZNUTRI" data-store="Lot Fitness" type="button">
+    <span class="promo-photo"></span>
+    <span class="card-body">
+      <img class="promo-logo" src="img/logo-lot-w.png" alt="Lot Fitness">
+      <span class="text">Roupas fitness pra treinar com <b>conforto e estilo</b>, com desconto.</span>
+      <span class="promo-code">BEATRIZNUTRI</span>
+      <span class="cta">Copiar cupom <span class="arrow c-copy">
+            <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+            <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
+          </span></span>
+    </span>
+  </button>
 
   <!-- 4. Studio -->
   <a class="card c-studio" href="https://www.google.com/maps/search/?api=1&query=Studio%20Beatriz%20Oliveira%20Tucano%20BA" target="_blank" rel="noopener">
