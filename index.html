@@ -327,6 +327,75 @@
   .toast .dot svg{width:12px;height:12px}
   .toast b{color:#E2C49C}
 
+
+  /* ---------- Organização: celular (ordem) e desktop (3 colunas) ---------- */
+  .wrap{display:flex;flex-direction:column}
+  .col{display:contents}
+  .brand{order:1}
+  .hero{order:2}
+  #conteudo{order:3}
+  .c-consulta{order:3}
+  .c-metodo{order:4}
+  .col-c .sec-head{order:5}
+  #cupons-lista{order:6}
+  #achadinhos{order:7}
+  .c-studio{order:8}
+  footer{order:9}
+
+  @media (min-width:1024px){
+    body{background:radial-gradient(1200px 600px at 50% -10%,#FBF6EF 0%,var(--bg) 60%)}
+    .wrap{
+      max-width:1280px;padding:30px 32px 26px;
+      display:grid;grid-template-columns:1.05fr 1fr .95fr;gap:20px;align-items:stretch;
+      grid-template-areas:"brand brand brand" "a b c" "shop shop shop" "foot foot foot";
+    }
+    .brand{grid-area:brand;margin-bottom:4px}
+    .name{font-size:26px}
+    .col{display:flex;flex-direction:column;gap:16px;min-width:0}
+    .col-a{grid-area:a}
+    .col-b{grid-area:b}
+    .col-c{grid-area:c}
+    .col .card{margin-bottom:0}
+    #cupons-lista .card{margin-bottom:0}
+
+    /* destaque ocupa a coluna inteira */
+    .hero{aspect-ratio:auto;height:100%;min-height:640px;margin-bottom:0;border-radius:30px}
+    .hero-big{font-size:76px}
+    .hero-pre{font-size:28px}
+    .hero-content{bottom:46px}
+    .hero-down{display:none}
+
+    /* cartões do meio dividem a altura */
+    .col-b .card{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center}
+    .col-b .card-body{width:100%}
+    .c-consulta .card-body{width:60%}
+    .c-consulta .photo{width:46%}
+    #conteudo{display:none}
+    .c-studio .card-body{padding-right:84px}
+
+    /* coluna de cupons em painel */
+    .col-c{
+      background:#FBF8F4;border:1px solid var(--line);border-radius:30px;
+      padding:22px 18px 18px;box-shadow:0 18px 40px -28px rgba(91,65,51,.5);
+    }
+    .col-c .sec-head{margin:2px 0 4px}
+    .col-c .sec-title{font-size:28px}
+    #cupons-lista{display:flex;flex-direction:column;gap:12px;flex:1}
+    #cupons-lista .promo{flex:1 0 auto}
+    .promo .card-body{width:74%}
+
+    /* achadinhos em faixa larga */
+    #achadinhos{grid-area:shop;margin:10px 0 0}
+    .shop-grid{grid-template-columns:repeat(5,1fr);gap:16px}
+    footer{grid-area:foot;margin-top:6px}
+
+    a.card:hover,.promo:hover{transform:translateY(-4px)}
+  }
+  @media (min-width:1024px) and (max-width:1180px){
+    .wrap{grid-template-columns:1fr 1fr 1fr;gap:16px}
+    .hero-big{font-size:64px}
+  }
+
   @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   @media (max-width:360px){
@@ -344,93 +413,112 @@
     <div class="role">Nutricionista</div>
   </header>
 
-  <!-- Destaque -->
-  <section class="hero">
-    <div class="hero-photo" role="img" aria-label="Foto da nutricionista Beatriz Oliveira"></div>
-    <div class="hero-content">
-      <p class="hero-pre">Apaixone-se pelo</p>
-      <p class="hero-big">processo</p>
-      <p class="hero-sub" data-key="frase_destaque">de emagrecer com <b>saúde e performance!</b></p>
-      <nav class="hero-social" aria-label="Redes sociais">
-      <a data-ig href="https://www.instagram.com/beatrizoliveira_nutrii/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+  <div class="col col-a">
+    <!-- Destaque -->
+    <section class="hero">
+      <div class="hero-photo" role="img" aria-label="Foto da nutricionista Beatriz Oliveira"></div>
+      <div class="hero-content">
+        <p class="hero-pre">Apaixone-se pelo</p>
+        <p class="hero-big">processo</p>
+        <p class="hero-sub" data-key="frase_destaque">de emagrecer com <b>saúde e performance!</b></p>
+        <nav class="hero-social" aria-label="Redes sociais">
+        <a data-ig href="https://www.instagram.com/beatrizoliveira_nutrii/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/5575991189877?text=Ol%C3%A1%2C%20Beatriz!%20Vim%20pelo%20seu%20Instagram." data-wa="Olá, Beatriz! Vim pelo seu Instagram." target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+        </a>
+      </nav>
+      </div>
+      <a class="hero-down" href="#conteudo" aria-label="Ver mais">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 10 5 5 5-5"/></svg>
       </a>
-      <a href="https://wa.me/5575991189877?text=Ol%C3%A1%2C%20Beatriz!%20Vim%20pelo%20seu%20Instagram." data-wa="Olá, Beatriz! Vim pelo seu Instagram." target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
-      </a>
-    </nav>
-    </div>
-    <a class="hero-down" href="#conteudo" aria-label="Ver mais">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 10 5 5 5-5"/></svg>
-    </a>
-  </section>
+    </section>
 
-  <div id="conteudo"></div>
-  <!-- 1. Consulta -->
-  <a class="card c-consulta" href="https://wa.me/5575991189877?text=Ol%C3%A1%2C%20Beatriz!%20Quero%20agendar%20uma%20consulta%20nutricional." data-wa="Olá, Beatriz! Quero agendar uma consulta nutricional." target="_blank" rel="noopener">
-    <div class="photo" role="img" aria-label="Foto da nutricionista Beatriz Oliveira"></div>
-    <div class="card-body">
-      <h2 class="title">Consulta Nutricional</h2>
-      <p class="text">Uma <b>nutrição simplificada</b>: você me conta o que gosta de comer e eu monto um plano <b>feito pra sua rotina</b>, sem cortar tudo.</p>
-      <span class="cta">Agendar consulta <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-    </div>
-  </a>
-
-  <!-- 2. Emagrecimento & performance -->
-  <a class="card c-metodo" href="https://wa.me/5575991189877?text=Ol%C3%A1%2C%20Beatriz!%20Quero%20emagrecer%20e%20destravar%20meu%20metabolismo." data-wa="Olá, Beatriz! Quero emagrecer e destravar meu metabolismo." target="_blank" rel="noopener">
-    <span class="ring"></span><span class="ring r2"></span>
-    <div class="card-body">
-      <div class="kicker">emagrecimento &amp; performance</div>
-      <h2 class="title">Destrave seu metabolismo</h2>
-      <p class="text">Estratégia e acompanhamento de perto para <b>reduzir a gordura abdominal</b> e ganhar desempenho, do treino ao dia a dia.</p>
-      <div class="stat"><strong data-key="transformacoes">+1200</strong><span>transformações</span></div>
-      <span class="cta">Quero começar <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-    </div>
-  </a>
-
-  <!-- 3. Cupons -->
-  <div class="sec-head">
-    <h2 class="sec-title">Cupons <em>de desconto</em></h2>
-    <p class="sec-sub">Marcas que eu uso e indico. Toque no cartão para <b>copiar o cupom</b>.</p>
   </div>
 
-  <div id="cupons-lista">
-  <button class="card promo coupon promo-shein" data-code="beatrizoliveiranutrii0644" data-store="Shein" type="button">
-    <span class="promo-photo"></span>
-    <span class="card-body">
-      <img class="promo-logo" src="img/logo-shein-w.png" alt="Shein">
-      <span class="text">Moda, acessórios e casa com <b>desconto especial</b> usando o meu cupom.</span>
-      <span class="promo-code long">beatrizoliveiranutrii0644</span>
-      <span class="cta">Copiar cupom <span class="arrow c-copy">
-            <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
-            <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
-          </span></span>
-    </span>
-  </button>
-  <button class="card promo coupon promo-growth" data-code="BEATRIZNUTRI" data-store="Growth" type="button">
-    <span class="promo-photo"></span>
-    <span class="card-body">
-      <img class="promo-logo" src="img/logo-growth-w.png" alt="Growth Supplements">
-      <span class="text">Os suplementos que eu uso no dia a dia, <b>mais em conta</b> pra você.</span>
-      <span class="promo-code">BEATRIZNUTRI</span>
-      <span class="cta">Copiar cupom <span class="arrow c-copy">
-            <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
-            <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
-          </span></span>
-    </span>
-  </button>
-  <button class="card promo coupon promo-lot" data-code="BEATRIZNUTRI" data-store="Lot Fitness" type="button">
-    <span class="promo-photo"></span>
-    <span class="card-body">
-      <img class="promo-logo" src="img/logo-lot-w.png" alt="Lot Fitness">
-      <span class="text">Roupas fitness pra treinar com <b>conforto e estilo</b>, com desconto.</span>
-      <span class="promo-code">BEATRIZNUTRI</span>
-      <span class="cta">Copiar cupom <span class="arrow c-copy">
-            <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
-            <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
-          </span></span>
-    </span>
-  </button>
+  <div id="conteudo"></div>
+  <div class="col col-b">
+    <!-- 1. Consulta -->
+    <a class="card c-consulta" href="https://wa.me/5575991189877?text=Ol%C3%A1%2C%20Beatriz!%20Quero%20agendar%20uma%20consulta%20nutricional." data-wa="Olá, Beatriz! Quero agendar uma consulta nutricional." target="_blank" rel="noopener">
+      <div class="photo" role="img" aria-label="Foto da nutricionista Beatriz Oliveira"></div>
+      <div class="card-body">
+        <h2 class="title">Consulta Nutricional</h2>
+        <p class="text">Uma <b>nutrição simplificada</b>: você me conta o que gosta de comer e eu monto um plano <b>feito pra sua rotina</b>, sem cortar tudo.</p>
+        <span class="cta">Agendar consulta <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+      </div>
+    </a>
+
+    <!-- 2. Emagrecimento & performance -->
+    <a class="card c-metodo" href="https://wa.me/5575991189877?text=Ol%C3%A1%2C%20Beatriz!%20Quero%20emagrecer%20e%20destravar%20meu%20metabolismo." data-wa="Olá, Beatriz! Quero emagrecer e destravar meu metabolismo." target="_blank" rel="noopener">
+      <span class="ring"></span><span class="ring r2"></span>
+      <div class="card-body">
+        <div class="kicker">emagrecimento &amp; performance</div>
+        <h2 class="title">Destrave seu metabolismo</h2>
+        <p class="text">Estratégia e acompanhamento de perto para <b>reduzir a gordura abdominal</b> e ganhar desempenho, do treino ao dia a dia.</p>
+        <div class="stat"><strong data-key="transformacoes">+1200</strong><span>transformações</span></div>
+        <span class="cta">Quero começar <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+      </div>
+    </a>
+
+    <!-- 4. Studio -->
+    <div class="card c-studio">
+      <span class="deco"></span>
+      <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+      <div class="card-body">
+        <h2 class="title">Studio Beatriz Oliveira</h2>
+        <p class="text" data-key="studio_texto">Atendimento presencial no <b>centro de Tucano-BA</b>, em frente à Honda. Um espaço pensado pra você se <b>apaixonar pelo processo</b>.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col col-c">
+    <!-- 3. Cupons -->
+    <div class="sec-head">
+      <h2 class="sec-title">Cupons <em>de desconto</em></h2>
+      <p class="sec-sub">Marcas que eu uso e indico. Toque no cartão para <b>copiar o cupom</b>.</p>
+    </div>
+
+    <div id="cupons-lista">
+    <button class="card promo coupon promo-shein" data-code="beatrizoliveiranutrii0644" data-store="Shein" type="button">
+      <span class="promo-photo"></span>
+      <span class="card-body">
+        <img class="promo-logo" src="img/logo-shein-w.png" alt="Shein">
+        <span class="text">Moda, acessórios e casa com <b>desconto especial</b> usando o meu cupom.</span>
+        <span class="promo-code long">beatrizoliveiranutrii0644</span>
+        <span class="cta">Copiar cupom <span class="arrow c-copy">
+              <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+              <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
+            </span></span>
+      </span>
+    </button>
+    <button class="card promo coupon promo-growth" data-code="BEATRIZNUTRI" data-store="Growth" type="button">
+      <span class="promo-photo"></span>
+      <span class="card-body">
+        <img class="promo-logo" src="img/logo-growth-w.png" alt="Growth Supplements">
+        <span class="text">Os suplementos que eu uso no dia a dia, <b>mais em conta</b> pra você.</span>
+        <span class="promo-code">BEATRIZNUTRI</span>
+        <span class="cta">Copiar cupom <span class="arrow c-copy">
+              <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+              <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
+            </span></span>
+      </span>
+    </button>
+    <button class="card promo coupon promo-lot" data-code="BEATRIZNUTRI" data-store="Lot Fitness" type="button">
+      <span class="promo-photo"></span>
+      <span class="card-body">
+        <img class="promo-logo" src="img/logo-lot-w.png" alt="Lot Fitness">
+        <span class="text">Roupas fitness pra treinar com <b>conforto e estilo</b>, com desconto.</span>
+        <span class="promo-code">BEATRIZNUTRI</span>
+        <span class="cta">Copiar cupom <span class="arrow c-copy">
+              <svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+              <svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
+            </span></span>
+      </span>
+    </button>
+    </div>
+
   </div>
 
   <!-- 3b. Achadinhos da Shein (preenchido pela planilha) -->
@@ -441,16 +529,6 @@
     </div>
     <div class="shop-grid" id="shop-grid"></div>
   </section>
-
-  <!-- 4. Studio -->
-  <div class="card c-studio">
-    <span class="deco"></span>
-    <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
-    <div class="card-body">
-      <h2 class="title">Studio Beatriz Oliveira</h2>
-      <p class="text" data-key="studio_texto">Atendimento presencial no <b>centro de Tucano-BA</b>, em frente à Honda. Um espaço pensado pra você se <b>apaixonar pelo processo</b>.</p>
-    </div>
-  </div>
 
   <footer>
     Todos os Direitos Reservados © Beatriz Oliveira · 2026<br>
